@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    generate-unique-name: false
+    jdbcUrl: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+    database-platform: org.hibernate.dialect.H2Dialect
+    liquibase:
+      change-log: classpath:/db/changelog/master-change-log.yaml
+  h2:
+    console:
+      enabled: true

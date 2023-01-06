@@ -1,0 +1,49 @@
+databaseChangeLog:
+  -  changeSet:
+      id: 1
+      author: mauri
+      changes:
+        - createTable:
+            tableName: SUPER_HEROE
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: nombre
+                  type: VARCHAR(200)
+                  constraints:
+                     nullable: false
+              - column:
+                  name: caracteristica
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: false
+              
+  - changeSet:
+      id: 2
+      author: mauri
+      changes:
+        - addColumn:
+            tableName: SUPER_HEROE
+            columns:
+              - column:
+                 name: create_at
+                 type: TIMESTAMP
+                 constraints:
+                   nullable: false
+
+  - changeSet:
+      id: 3
+      author: mauri
+      changes:
+        - sqlFile:
+            relativeToChangelogFile: false
+            comment: Generating mock data
+            dbms: "h2"
+            endDelimiter: ;
+            splitStatemets: true
+            path: /data.sql
+  
